@@ -1,0 +1,47 @@
+{
+  "name": "mezzotint",
+  "version": "0.1.0",
+  "description": "Turn any image into living dust: thousands of particles that form silhouettes, react to the pointer and flow from shape to shape as you scroll. WebGL, zero dependencies.",
+  "type": "module",
+  "main": "./src/mezzotint.js",
+  "module": "./src/mezzotint.js",
+  "exports": {
+    ".": "./src/mezzotint.js",
+    "./story": "./src/story.js"
+  },
+  "files": [
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "node scripts/serve.mjs"
+  },
+  "keywords": [
+    "mezzotint",
+    "particles",
+    "image",
+    "silhouette",
+    "stipple",
+    "halftone",
+    "dither",
+    "webgl",
+    "canvas",
+    "morph",
+    "scrollytelling",
+    "animation",
+    "generative"
+  ],
+  "license": "MIT",
+  "author": "GTLR (https://gtlr.studio)",
+  "homepage": "https://yakubzze.github.io/mezzotint/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yakubzze/mezzotint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yakubzze/mezzotint/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

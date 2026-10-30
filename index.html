@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mezzotint — images made of living dust</title>
+  <meta name="description" content="An open-source particle engine: any image becomes thousands of particles that hold its shape, react to the pointer and flow from picture to picture as you scroll. WebGL, zero dependencies.">
+  <meta name="theme-color" content="#050506">
+  <meta name="author" content="GTLR">
+  <link rel="author" href="https://gtlr.studio">
+  <link rel="canonical" href="https://yakubzze.github.io/mezzotint/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yakubzze.github.io/mezzotint/">
+  <meta property="og:title" content="mezzotint — images made of living dust">
+  <meta property="og:description" content="Turn any image into living dust. Open source, WebGL, zero dependencies.">
+  <meta property="og:image" content="https://yakubzze.github.io/mezzotint/demo/images/profile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050506'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='16' cy='16' r='3'/%3E%3Ccircle cx='16' cy='7' r='1.6' opacity='.8'/%3E%3Ccircle cx='24' cy='12' r='1.4' opacity='.6'/%3E%3Ccircle cx='23' cy='22' r='1.6' opacity='.8'/%3E%3Ccircle cx='12' cy='25' r='1.3' opacity='.55'/%3E%3Ccircle cx='8' cy='15' r='1.5' opacity='.7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="demo/site.css">
+</head>
+<body class="landing">
+  <canvas id="dust" aria-hidden="true"></canvas>
+
+  <header class="bar">
+    <a class="brand" href="./" aria-label="mezzotint home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="16" cy="16" r="3"/><circle cx="16" cy="7" r="1.6" opacity=".8"/><circle cx="24" cy="12" r="1.4" opacity=".6"/><circle cx="23" cy="22" r="1.6" opacity=".8"/><circle cx="12" cy="25" r="1.3" opacity=".55"/><circle cx="8" cy="15" r="1.5" opacity=".7"/></g></svg>
+      mezzotint
+    </a>
+    <nav aria-label="Main">
+      <a href="configurator.html">Configurator</a>
+      <a href="#get-started">Docs</a>
+      <a href="https://github.com/yakubzze/mezzotint">GitHub</a>
+    </nav>
+  </header>
+
+  <aside class="progress" aria-hidden="true"></aside>
+
+  <main>
+    <section class="step hero" data-text="mezzotint" data-area="hero">
+      <div class="copy">
+        <p class="eyebrow">Open source · zero dependencies</p>
+        <h1>Images, made of living&nbsp;dust.</h1>
+        <p class="lede">mezzotint turns any picture into thousands of particles. They hold its shape, drift, scatter under your cursor — and flow into the next picture as you scroll.</p>
+        <div class="cta">
+          <a class="btn primary" href="configurator.html">Try it with your image</a>
+          <a class="btn" href="#how">How it works</a>
+        </div>
+        <p class="hint">Move your cursor through the letters · scroll to begin</p>
+      </div>
+    </section>
+
+    <section class="step" id="how" data-src="demo/images/profile.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>01</b> — Sampling</p>
+        <h2>Every pixel casts a vote.</h2>
+        <p>Bright pixels pull particles in, dark ones leave room. A few thousand points, placed by brightness, are enough to read a face, a gesture, a mood.</p>
+      </div>
+    </section>
+
+    <section class="step" data-src="demo/images/portrait.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>02</b> — Tone</p>
+        <h2>Light becomes density.</h2>
+        <p>Gradients survive. A face half in shadow stays half in shadow — the sampler keeps the tonal range of a photograph instead of flattening it into a cut‑out.</p>
+      </div>
+    </section>
+
+    <section class="step" data-src="demo/images/swallow.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>03</b> — Morphing</p>
+        <h2>Shapes flow. They don’t jump.</h2>
+        <p>Particles are ordered along a space‑filling curve, so neighbours in one image stay neighbours in the next. The transition reads as motion, not noise.</p>
+      </div>
+    </section>
+
+    <section class="step" data-src="demo/images/wolf.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>04</b> — Scroll</p>
+        <h2>The scrollbar is the timeline.</h2>
+        <p>Every transition on this page is scrubbed by your scroll position. Stop halfway and the dust waits with you; scroll back and it plays in reverse.</p>
+      </div>
+    </section>
+
+    <section class="step" data-src="demo/images/hand.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>05</b> — Touch</p>
+        <h2>It answers to your hand.</h2>
+        <p>Move the pointer through the dust to push it aside. Press and hold to blast it apart — let go, and every particle finds its way home.</p>
+        <span class="note">Press and hold on the hand</span>
+      </div>
+    </section>
+
+    <section class="step" data-src="demo/images/galaxy.jpg">
+      <div class="copy">
+        <p class="eyebrow"><b>06</b> — Weight</p>
+        <h2>Small enough to ship.</h2>
+        <p>One ES module, no dependencies. WebGL point sprites with a Canvas 2D fallback; it pauses off‑screen and honours reduced‑motion settings.</p>
+      </div>
+    </section>
+
+    <section class="step" data-text="your&#10;turn">
+      <div class="copy">
+        <p class="eyebrow"><b>07</b> — Yours</p>
+        <h2>Bring your own silhouette.</h2>
+        <p>High‑contrast black‑and‑white pictures work best: a figure against the light, a shape on a plain background. The configurator inverts, sharpens and cleans them up — and nothing leaves your browser.</p>
+        <div class="cta" style="justify-content:flex-start">
+          <a class="btn primary" href="configurator.html">Open the configurator</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="after" id="get-started">
+    <section>
+      <p class="eyebrow">Get started</p>
+      <h2>Three lines to your first shape.</h2>
+      <p class="lead">Install from npm or import the module straight from a CDN. Give it a canvas and a picture; every later picture morphs out of the previous one.</p>
+      <div class="cols">
+<pre class="code"><span class="c">// npm i mezzotint</span>
+<span class="k">import</span> { Mezzotint } <span class="k">from</span> <span class="s">'mezzotint'</span>;
+
+<span class="k">const</span> dust = <span class="k">new</span> Mezzotint(<span class="s">'#canvas'</span>);
+<span class="k">await</span> dust.show(<span class="s">'silhouette.jpg'</span>);
+
+<span class="c">// later: flows into the next picture</span>
+dust.show(<span class="s">'another.jpg'</span>, { sweep: <span class="s">'left'</span> });
+dust.text(<span class="s">'hello'</span>);</pre>
+<pre class="code"><span class="c">// scroll-driven story, like this page</span>
+<span class="k">import</span> { Mezzotint, story } <span class="k">from</span> <span class="s">'mezzotint'</span>;
+
+<span class="k">const</span> dust = <span class="k">new</span> Mezzotint(<span class="s">'#canvas'</span>);
+story(dust, [...document.querySelectorAll(<span class="s">'[data-src]'</span>)]
+  .map((el) => ({ el, src: el.dataset.src })));</pre>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">What’s inside</p>
+      <div class="features">
+        <div><h3>Brightness‑weighted sampling</h3><p>Stratified sampling places a fixed number of particles by brightness — even dust, no clumps, no holes.</p></div>
+        <div><h3>Flow and swarm morphs</h3><p>Hilbert‑curve ordering keeps neighbours together; swarm mode lets every particle go anywhere. Sweep from any side.</p></div>
+        <div><h3>Scroll scrubbing</h3><p><code>story()</code> ties transitions to the scroll position — forwards, backwards, paused halfway.</p></div>
+        <div><h3>Pointer physics</h3><p>Repel, attract or vortex; press and hold to blast the shape apart. Touch-friendly.</p></div>
+        <div><h3>Image clean‑up</h3><p>Auto‑invert for dark ink on light paper, levels, blur, edge detection, posterize and a flat silhouette mode.</p></div>
+        <div><h3>Polite by default</h3><p>Pauses off‑screen, stops drawing when nothing moves and respects <code>prefers-reduced-motion</code>.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">The name</p>
+      <h2>Light, pulled out of the dark.</h2>
+      <p class="lead">Mezzotint is a printmaking technique from the 1640s. A copper plate is roughened with thousands of tiny dots, and the image is worked out of that darkness: <i>la manière noire</i>, the dark manner. Image editors still list a Mezzotint filter under “Pixelate”. This library does the same with light, one particle at a time.</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">Sample images</p>
+      <h2>Fourteen pictures to play with.</h2>
+      <p class="lead">Open any of them in the configurator. The sample images are AI-generated: they were made with Google Gemini for this demo.</p>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <footer class="site">
+      <span>mezzotint · MIT licence · made by <a href="https://gtlr.studio">GTLR</a></span>
+      <span><a href="configurator.html">Configurator</a> · <a href="https://github.com/yakubzze/mezzotint">GitHub</a></span>
+    </footer>
+  </div>
+
+  <script type="module" src="demo/landing.js"></script>
+</body>
+</html>

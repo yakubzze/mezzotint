@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mezzotint — configurator</title>
+  <meta name="description" content="Drop in an image, tune the particles, save presets and export the code. Everything runs in your browser.">
+  <meta name="theme-color" content="#050506">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23050506'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='16' cy='16' r='3'/%3E%3Ccircle cx='16' cy='7' r='1.6' opacity='.8'/%3E%3Ccircle cx='24' cy='12' r='1.4' opacity='.6'/%3E%3Ccircle cx='23' cy='22' r='1.6' opacity='.8'/%3E%3Ccircle cx='12' cy='25' r='1.3' opacity='.55'/%3E%3Ccircle cx='8' cy='15' r='1.5' opacity='.7'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="stylesheet" href="demo/site.css">
+</head>
+<body class="studio-page">
+  <header class="bar">
+    <a class="brand" href="./" aria-label="mezzotint home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="currentColor"><circle cx="16" cy="16" r="3"/><circle cx="16" cy="7" r="1.6" opacity=".8"/><circle cx="24" cy="12" r="1.4" opacity=".6"/><circle cx="23" cy="22" r="1.6" opacity=".8"/><circle cx="12" cy="25" r="1.3" opacity=".55"/><circle cx="8" cy="15" r="1.5" opacity=".7"/></g></svg>
+      mezzotint
+    </a>
+    <nav aria-label="Main">
+      <a href="configurator.html" aria-current="page">Configurator</a>
+      <a href="./#get-started">Docs</a>
+      <a href="https://github.com/yakubzze/mezzotint">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="studio">
+    <aside class="panel" id="panel" aria-label="Settings">
+      <details open>
+        <summary>Source</summary>
+        <div class="group">
+          <label class="drop" id="drop">
+            <input type="file" id="file" accept="image/*">
+            <strong>Drop an image</strong>
+            <span>or click to choose · stays in your browser</span>
+          </label>
+          <div class="samples" id="samples" role="group" aria-label="Sample images"></div>
+          <div class="field">
+            <label for="text">Or type something</label>
+            <div class="row">
+              <input type="text" id="text" placeholder="hello" maxlength="40" autocomplete="off">
+              <button class="btn small" id="text-go" type="button">Show</button>
+            </div>
+          </div>
+        </div>
+      </details>
+      <div id="controls"></div>
+      <details open>
+        <summary>Presets</summary>
+        <div class="group">
+          <div class="row">
+            <input type="text" id="preset-name" placeholder="Preset name" maxlength="40" autocomplete="off" aria-label="Preset name">
+            <button class="btn small" id="preset-save" type="button">Save</button>
+          </div>
+          <ul class="presets" id="presets"></ul>
+          <p class="muted" id="storage-note">Presets are saved in this browser only (localStorage).</p>
+        </div>
+      </details>
+      <details open>
+        <summary>Export</summary>
+        <div class="group">
+          <div class="actions">
+            <button class="btn small" id="copy-code" type="button">Copy code</button>
+            <button class="btn small" id="export-json" type="button">Export JSON</button>
+            <button class="btn small" id="import-json" type="button">Import JSON</button>
+            <button class="btn small" id="download-png" type="button">Save PNG</button>
+          </div>
+          <input type="file" id="import-file" accept="application/json,.json" hidden>
+          <button class="btn small" id="reset" type="button">Reset to defaults</button>
+        </div>
+      </details>
+      <p class="muted" style="padding: 18px 20px 0">mezzotint · MIT · made by <a href="https://gtlr.studio">GTLR</a></p>
+    </aside>
+
+    <div class="stage" id="stage">
+      <canvas id="dust" aria-label="Particle preview"></canvas>
+      <canvas class="inspect" id="inspect" hidden aria-label="Processed image"></canvas>
+      <div class="stage-ui" role="toolbar" aria-label="Preview">
+        <button class="btn small" id="replay" type="button">Replay intro</button>
+        <button class="btn small" id="burst" type="button">Burst</button>
+        <button class="btn small" id="toggle-inspect" type="button" aria-pressed="false">Processed image</button>
+      </div>
+      <div class="stage-drop" aria-hidden="true">Drop to load</div>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script type="module" src="demo/configurator.js"></script>
+</body>
+</html>
